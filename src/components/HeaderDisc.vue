@@ -1,6 +1,9 @@
 <template>
   <header>
     <i class="fab fa-spotify"></i>
+    <select name="genre-filter" id="genre-filter">
+      <option value=""></option>
+    </select>
   </header>
 </template>
 

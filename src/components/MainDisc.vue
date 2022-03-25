@@ -24,9 +24,6 @@ export default {
       arrDiscs: null,
     };
   },
-  props: {
-
-  },
   created() {
     axios.get('https://flynn.boolean.careers/exercises/api/array/music')
       .then((res) => {
@@ -40,8 +37,10 @@ export default {
           };
           return obj;
         });
-        console.log(this.arrDiscs);
       });
+  },
+  mounted() {
+    this.$emit('dataTransfer', this.arrDiscs);
   },
 };
 </script>

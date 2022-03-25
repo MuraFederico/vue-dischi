@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <header-disc />
-    <main-disc />
+    <main-disc @dataTransfer="getData" />
   </div>
 </template>
 
@@ -14,6 +14,16 @@ export default {
   components: {
     HeaderDisc,
     MainDisc,
+  },
+  data() {
+    return {
+      arrDiscs: null,
+    };
+  },
+  methods() {
+    getData(data) {
+      this.arrDiscs = data;
+    }
   },
 };
 </script>
