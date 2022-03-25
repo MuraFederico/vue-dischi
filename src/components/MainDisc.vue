@@ -38,9 +38,11 @@ export default {
           return obj;
         });
       });
+    console.log(this.arrDiscs);
   },
   mounted() {
     this.$emit('dataTransfer', this.arrDiscs);
+    // console.log(this.arrDiscs);
   },
 };
 </script>

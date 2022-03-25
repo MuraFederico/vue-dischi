@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <header-disc />
-    <main-disc @dataTransfer="getData" />
+    <main-disc @dataTransfer="getData()" />
   </div>
 </template>
 
@@ -20,10 +20,11 @@ export default {
       arrDiscs: null,
     };
   },
-  methods() {
+  methods: {
     getData(data) {
       this.arrDiscs = data;
-    }
+      // console.log(data);
+    },
   },
 };
 </script>
