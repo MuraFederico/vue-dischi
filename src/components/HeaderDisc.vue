@@ -14,30 +14,12 @@ export default {
   name: 'HeaderDisc',
   data() {
     return {
-      arrGenre: [],
+      // arrGenre: [],
     };
   },
   props: {
     arrDiscs: Array,
-  },
-  methods: {
-
-  },
-  created() {
-    this.arrDiscs.forEach((disc) => {
-      if (!this.arrGenre.includes(disc.genre)) {
-        this.arrGenre.push(disc.genre);
-      }
-    });
-    console.log(this.arrGenre);
-  },
-  updated() {
-    this.arrDiscs.forEach((disc) => {
-      if (!this.arrGenre.includes(disc.genre)) {
-        this.arrGenre.push(disc.genre);
-      }
-      console.log(this.arrGenre);
-    });
+    arrGenre: Array,
   },
 };
 </script>

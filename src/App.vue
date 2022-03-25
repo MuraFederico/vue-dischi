@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <header-disc :arrDiscs="arrDiscs"/>
+    <header-disc :arrDiscs="arrDiscs" :arrGenre="arrGenre"/>
     <main-disc @dataTransfer="getData" />
   </div>
 </template>
@@ -18,12 +18,26 @@ export default {
   data() {
     return {
       arrDiscs: [],
+      arrGenre: [],
     };
   },
   methods: {
     getData(data) {
       this.arrDiscs = data;
     },
+    populateArrGenre() {
+      this.arrDiscs.forEach((disc) => {
+        if (!this.arrGenre.includes(disc.genre)) {
+          this.arrGenre.push(disc.genre);
+        }
+      });
+    },
+  },
+  mounted() {
+    this.populateArrGenre();
+  },
+  updated() {
+    this.populateArrGenre();
   },
 };
 </script>
