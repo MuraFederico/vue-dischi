@@ -17,7 +17,7 @@ export default {
   },
   data() {
     return {
-      arrDiscs: null,
+      arrDiscs: [],
     };
   },
   methods: {

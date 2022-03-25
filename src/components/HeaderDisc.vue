@@ -5,7 +5,6 @@
       <option v-for="disc in arrGenre" :key="disc.genre" :value="disc.genre">
         {{ disc.genre }}
       </option>
-      option*
     </select>
   </header>
 </template>
