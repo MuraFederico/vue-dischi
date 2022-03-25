@@ -2,8 +2,8 @@
   <header>
     <i class="fab fa-spotify"></i>
     <select name="genre-filter" id="genre-filter">
-      <option v-for="disc in arrGenre" :key="disc.genre" :value="disc.genre">
-        {{ disc.genre }}
+      <option v-for="genre in arrGenre" :key="genre" :value="genre">
+        {{ genre }}
       </option>
     </select>
   </header>
@@ -29,12 +29,14 @@ export default {
         this.arrGenre.push(disc.genre);
       }
     });
+    console.log(this.arrGenre);
   },
   updated() {
     this.arrDiscs.forEach((disc) => {
       if (!this.arrGenre.includes(disc.genre)) {
         this.arrGenre.push(disc.genre);
       }
+      console.log(this.arrGenre);
     });
   },
 };
