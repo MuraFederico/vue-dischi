@@ -2,9 +2,9 @@
   <header>
     <i class="fab fa-spotify"></i>
     <select name="genre-filter" id="genre-filter">
-      <!-- <option v-for="disc in getGenre()" :key="disc.genre" :value="disc.genre">
+      <option v-for="disc in arrGenre" :key="disc.genre" :value="disc.genre">
         {{ disc.genre }}
-      </option> -->
+      </option>
       option*
     </select>
   </header>
