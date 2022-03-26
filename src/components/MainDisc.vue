@@ -1,8 +1,15 @@
 <template>
   <main class="p-5">
-    <div class="container">
+    <div v-if="arrFiltered.length === 0" class="container">
       <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-xxl-5 g-3">
         <card-disc v-for="disc in arrDiscs" :key="disc.title"
+        :cardData="disc"
+        />
+      </div>
+    </div>
+    <div v-else class="container">
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-xxl-5 g-3">
+        <card-disc v-for="disc in arrFiltered" :key="disc.title"
         :cardData="disc"
         />
       </div>
@@ -18,6 +25,9 @@ export default {
   name: 'MainDisc',
   components: {
     CardDisc,
+  },
+  props: {
+    arrFiltered: Array,
   },
   data() {
     return {

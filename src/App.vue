@@ -1,11 +1,12 @@
 <template>
   <div id="app">
-    <header-disc :arrDiscs="arrDiscs" :arrGenre="arrGenre"/>
-    <main-disc @dataTransfer="getData" />
+    <header-disc @passArrFiltered="getArrFiltered" :arrDiscs="arrDiscs" :arrGenre="arrGenre"/>
+    <main-disc @dataTransfer="getData" :arrFiltered="arrFiltered"/>
   </div>
 </template>
 
 <script>
+/* eslint-disable */
 import HeaderDisc from './components/HeaderDisc.vue';
 import MainDisc from './components/MainDisc.vue';
 
@@ -18,14 +19,18 @@ export default {
   data() {
     return {
       arrDiscs: [],
-      arrGenre: [],
+      arrGenre: ['All'],
+      arrFiltered: [],
     };
   },
   methods: {
     getData(data) {
       this.arrDiscs = data;
     },
-    populateArrGenre() {
+    getArrFiltered(data) {
+      this.arrFiltered = data;
+    },
+    getArrGenre() {
       this.arrDiscs.forEach((disc) => {
         if (!this.arrGenre.includes(disc.genre)) {
           this.arrGenre.push(disc.genre);
@@ -34,10 +39,10 @@ export default {
     },
   },
   mounted() {
-    this.populateArrGenre();
+    this.getArrGenre();
   },
   updated() {
-    this.populateArrGenre();
+    this.getArrGenre();
   },
 };
 </script>
